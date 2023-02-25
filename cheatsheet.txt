@@ -1,0 +1,78 @@
+MongoDB commands for databases
+View all databases
+show dbs
+
+create or switch a new database
+use "dbname"
+
+View current database
+db 
+
+Delete database
+db.dropDatabase()
+
+
+
+MongoDB commands for collections
+show Collections 
+show collections
+
+Create a Collection named 'comments'
+db.createCollection('comments')
+
+Delete a Collection named 'content'
+db.content.drop()
+
+
+MongoDB commands for rows
+Insert a row
+db.comments.insert({
+    'name':'Ashar',
+    'lang':'Javascript',
+    'age':21
+})
+
+Insert many rows
+db.comments.insertMany([{
+    'name':'Ashar',
+    'lang':'Javascript',
+    'age':21
+    },
+    {'name':'Hassan',
+    'lang':'Copy_paste',
+    'age':22
+    },
+    {'name':'Noman',
+    'lang':'Matlab',
+    'age':22
+    }])
+
+Show all rows in a collections
+db.comments.find()        //(comments is the name of collection)   
+db.comments.find().pretty() 
+
+
+Find the first row matching
+db.comments.findOne({name:'Ashar'})
+
+
+
+Search in a MongoDB database
+db.comments.find({lang:'Matlab'})
+
+
+
+Limiting
+db.comments.find({lang:'Matlab'}).pretty().limit(n)     //n=number of limit
+
+
+count the number of rows in the output
+db.comments.find().count()
+
+Update a row
+db.comments.update({name:'Ashar},
+{
+     'name':'Ashar',
+    'lang':'C++',
+    'age':21
+})
